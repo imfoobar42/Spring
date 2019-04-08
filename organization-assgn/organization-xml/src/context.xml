@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
+
+
+
+<bean id="org" class="com.capgemini.spring.Organization">
+<constructor-arg value="101" index="0" type="int"></constructor-arg>  
+<constructor-arg value="CapGemini" index="1"></constructor-arg>  
+<constructor-arg value="35000" index="2" type="double"></constructor-arg>  
+<constructor-arg index="3" ref="address"></constructor-arg>  
+
+ <constructor-arg index="6" >
+ <map>               
+    <entry key="IT">             
+        <value>Dave Smith</value>          
+    </entry>             
+     <entry key="Commerce">      
+            <value>Ron Harris</value>              
+     </entry>         
+
+     </map>  
+</constructor-arg>  
+
+<constructor-arg index="4">
+  <list>                
+  <value>Akash</value> 
+    <value>Singh</value>   
+  <value>Mallesh</value>   
+  <value>Kumar</value>   
+  
+</list> 
+</constructor-arg>
+<constructor-arg index="5">
+  <set>               
+             
+  <value>Mumbai</value> 
+    <value>Pune</value>   
+  <value>Ahmedabad</value>   
+  <value>Banglore</value>   
+  
+</set> 
+</constructor-arg>
+
+<constructor-arg index="7" ref="ip">
+</constructor-arg>
+
+
+<constructor-arg index="8" ref="db">
+</constructor-arg>
+
+
+
+
+</bean>
+
+
+<util:properties id="ip" location="ip.properties" />
+<util:properties id="db" location="dbconfig.properties" />
+
+
+
+
+
+<bean id="address" class="com.capgemini.spring.model.Address">
+<constructor-arg index="0" value="Mumbai" />
+<constructor-arg  index="1" value="Maharashtra"/>
+</bean>
+
+</beans>

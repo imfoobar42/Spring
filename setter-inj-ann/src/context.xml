@@ -1,0 +1,20 @@
+﻿  <beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:sec="http://cxf.apache.org/configuration/security"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<context:annotation-config/>
+
+	<bean id="renderer" class="com.capgemini.spring.renderer.MessageRenderer">
+	<property name="messageProvider" ref="provider"> </property> 
+	</bean>
+
+	<bean id="provider" class="com.capgemini.spring.provider.GMMessageProvider">
+	</bean>
+</beans>
